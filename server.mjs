@@ -5,8 +5,8 @@
 //   res.end();
 // }).listen(process.env.PORT);
 // Requiring module
-const express = require('express');
-const WebSocket = require('ws');
+import express from 'express';
+import WebSocket from 'ws';
 
 // Creating express object
 const app = express();
