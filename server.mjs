@@ -21,6 +21,18 @@ const servers = {
   local8889: { protocol: "ws", host: "127.0.0.1", port: "8889" },  // http://127.0.0.1:5000/test/local8889
 }
 
+const messagesIds = {
+  PromoteToUser: 1,
+  UserConnected: 2,
+  UserDisconnected: 3,
+  Spawn: 4,
+  DeSpawn: 5,
+  ServerReady: 6,
+  KeepAlive: 7,
+  UserDataChanged: 11,
+  SyncNetworkObject: 12,
+  RPC: 13,
+}
 var clients = [];
 var gradualInterval = null;
 
@@ -243,18 +255,7 @@ function Client() {
     socket.send(buffer);
   }
 
-  messagesIds = {
-    PromoteToUser: 1,
-    UserConnected: 2,
-    UserDisconnected: 3,
-    Spawn: 4,
-    DeSpawn: 5,
-    ServerReady: 6,
-    KeepAlive: 7,
-    UserDataChanged: 11,
-    SyncNetworkObject: 12,
-    RPC: 13,
-  }
+
 
   function Message(data) {
     this.headerLength = data[0];
